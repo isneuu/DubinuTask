@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <title></title> -->
+ <!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+        crossorigin="anonymous"> -->
+
+    <link href='https://fonts.googleapis.com/css?family=Inter:300,400,600,700' rel='stylesheet' type='text/css'>
+ <script src='js/jquery-3.1.1.js'></script>
+    <style type="text/css">
+      @font-face {
+  font-family: "Inter";
+  font-weight: 700;
+  src: url("https://.abarba.me/SF-UI-Display-Bold.otf");
+}
+.tool-tip{background-image: url(img/add.svg);}
+    </style>
+</head>
+<!--  -->
+<center>
+<body>
+  <link rel="stylesheet" type="text/css" href="css/tooltip.css">
+<!--  <div class="demo" id="demo"></div>
+ -->        <img src="img/dut_sm.png" class="dtask">
+<!-- <span class="tool" data-tip="Add a new user to this project." tabindex="1">Hiiii</span> -->
+<!-- <img src="img/add.svg" class="tool-tip" data-tooltip-title="Top tooltip" data-tooltip-position="top"> -->
+
+
+    <div id="board" class="board">
+        <!-- <h1>Dubinu Task</h1> -->
+ <div class="proj_box"><span class='cur_proj'>Current Project</span>
+<div class='project_title'>My project at task</div>
+
+ <div class="tool-tip" data-tooltip-title="Add users to the Project" data-tooltip-position="top" id="add_users_tooltip"></div>
+
+  <div class="tool-tip done-mark" data-tooltip-title="Mark the project as done" data-tooltip-position="top"></div>
+
+<div class="box-users tool-tip" data-tooltip-title="Only You" data-tooltip-position="top">1</div>
+
+   <div class="add_user"> <input class="user_email" type="email" id="user_add_email" placeholder="User Email"></input> <button class="add_user_btn" id="add_user_btn">Add user</button></div>
+ </div>
+
+<script type="text/javascript">
+  
+  $(".done-mark").on("click", function(){
+
+ var txt;
+  var r = confirm("This project is not saved! You can not mark it done.");
+  if (r == true) {
+    txt = "Project Marked Done!";
+  } else {
+    txt = "Project Marked undone!";
+  }
+
+
+  });
+
+  
+
+
+
+
+  document.getElementById("add_user_btn").onclick = function() {myFunction()};
+  
+/* myFunction toggles between adding and removing the show class, which is used to hide and show the dropdown content */
+function myFunction() {
+
+alert("You can not add users if you are not registered.");
+
+}
+
+
+</script>
+
+
+    <!--     <button class="create-column">Add a column</button> -->
+        <div class="column-container"></div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.0.0.min.js" integrity="sha256-JmvOoLtYsmqlsWxa7mDSLMwa6dZ9rrIdtrrVYRnDRH0="
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js" integrity="sha256-xNjb53/rY+WmG+4L6tTl9m6PpqknWZvRt0rO1SRnJzw="
+        crossorigin="anonymous"></script>
+    
+</body>
+</center>
+</html>
+<a class="log_out_btn" href="https://facebook.com/theprocessofprogress">Questions? Ask us on facebook!</a>
+
+
+<style type="text/css">
+  .log_out_btn{
+    position: absolute;
+    bottom: 0px;
+    right:0px;
+    padding: 10px;
+  }
+.box-users {
+    font-family: Inter;
+    border: 2px solid #ccc;
+    cursor: pointer;
+    padding: 10px 16px;
+    float: right;
+    height: fit-content;
+    border-radius: 28px;
+    width: 70px;
+    background-image: url(img/mem.svg);
+    margin: 8px;
+    font-size: 18px;
+    background-repeat: no-repeat;
+    background-position-x: 33px;
+    background-position-y: 8px;
+    background-color: white;
+    margin-top: -44px;
+    margin-right: 90px;
+}
+.done-mark {
+    margin-right: 30px;
+    background-image: url(img/check.svg);
+    z-index: 999;
+    /* padding: 20px; */
+    /* position: absolute; */
+}
+  * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-family: "Inter";
+  font-weight: 900;
+  margin-left: 20px;
+}
+
+p, div, span, .tool-tip{
+font-family: "Inter";
+}
+
+h2 {
+    font-family: "Inter";
+    font-weight: 600;
+    float: right;
+    /*background: white;*/
+    width: -webkit-fill-available;
+    text-align: right;
+    padding: 15px 25px;
+    /*border-radius: 6px;*/
+        border-radius: 0px;
+    border-bottom: 2px solid #fafafa;
+    margin-bottom: 20px;
+}
+
+body{
+    background: #fafafa;
+}
+
+input.user_email {
+    background: #ffffff;
+    outline: none;
+    height: fit-content;
+    text-align: left;
+    /*transition: all 200ms linear;*/
+    border-radius: 6px;
+    margin-bottom: 10px;
+    /*cursor: pointer;*/
+    border: 0px;
+    padding: 20px;
+    font-size: 16px;
+    /*font-weight: 600;*/
+    /*cursor: pointer;*/
+    color: black;
+    font-family: Inter;
+}
+.add_user {
+  display: none;
+margin-top: -35px;
+    float: right;
+    margin-right: 90px;
+    /*transition: all 400ms linear;*/
+}
+
+.create-column {
+  font-family: 'Inter';
+  width: 25%;
+  height: 50px;
+  margin-left: 20px;
+  background-color: #7a7aff;
+    transition: 400ms all linear;
+  box-shadow: 3px 3px #413939;
+  border-radius: 3px;
+  font-weight: bold;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+.column-container{
+    display: inline-flex;
+}
+.column {
+    transition: 400ms all linear;
+    background-color: #ffffff;
+    /* box-shadow: 3px 3px #413939; */
+    width: 350px;
+    /* height: 500px; */
+    /* float: left; */
+    padding: 10px;
+    height: fit-content;
+    margin: 20px;
+    text-align: left;
+    /* border: 5px solid rgba(58, 6, 6, 0.342); */
+    border-radius: 10px;
+}
+.column-card-list {
+  height: auto;
+  min-height: 30px;
+    transition: 400ms all linear;
+  margin-top: 25px;
+}
+
+.btn-delete {
+  width: 30px;
+  height: 30px;
+  border-radius: 3px;
+  font-weight: bold;
+}
+
+.btn-delete:hover{
+    transform: scale(1.3) skewX(-17deg);
+    /*transform: ;*/
+    /* box-shadow: 0px 0px 4px 1px #dedede; */
+}
+
+span.span-title {
+    padding: 5px;
+    font-weight: 600;
+    color: grey;
+    margin-top: 12px;
+    /* float: left; */
+    padding-top: 20px;
+}
+.card:hover{
+    background: white;
+    box-shadow: 0px 0px 6px 0px #e8e8e8;
+
+}
+.project_title {
+    font-size: 25px;
+    font-weight: 600;
+    font-family: Inter;
+}
+button.add_user_btn {
+    background: none;
+    border: 0px;
+    margin-left: 20px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    color: darkgray;
+    font-family: Inter;
+}
+
+button.add_user_btn:hover {
+  color: black;
+}
+
+.add-card:hover{
+  color:black;
+}
+.proj_box {
+    padding: 25px;
+    text-align: left;
+}
+div#board {
+    width: fit-content;
+}
+.add-card {
+     font-family: Inter;
+    background: none;
+    border: 0px;
+    font-weight: 600;
+    font-size: 15px;
+    outline: none;
+    margin-top: -5px;
+    cursor: pointer;
+    color: grey;
+    float: right;
+    background-image: url(img/add.svg);
+    padding: 8px;
+    background-repeat: no-repeat;
+    padding-left: 30px;
+    background-size: 15px;
+    background-position-y: 9px;
+    background-position-x: 5px;
+}
+span.cur_proj {
+    color: #908c8c;
+}
+.card {
+    /*background: #ffffff;*/
+        background: #fafafa;
+    height: fit-content;
+        text-align: left;
+    padding: 13px;
+    transition: all 200ms linear;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.create-column:hover {
+  background: #00c7e8;
+}
+img.dtask {
+    height: 50px;
+    margin: 30px;
+    margin-bottom: 50px;
+}
+li {
+  list-style-type: none;
+}
+
+.card-placeholder {
+  background: red;
+}
+
+li .btn-delete {
+    width: 20px;
+    transition: 200ms all ease-out;
+    height: 20px;
+    cursor: pointer;
+    border-radius: 24px;
+    background: #fafafa;
+    float: right;
+    border: 0px;
+    background-image: url(img/inv.svg);
+    color: darkgrey;
+    background-repeat: no-repeat;
+    background-position: 5px 5px;
+    content: '';
+}
+
+.card:active{
+    transform: skewY(3deg) skewX(-18deg);
+}
+
+</style>
+
+<script type="text/javascript">
+
+$("#add_users_tooltip").on("click", function() {
+  $(".add_user").slideToggle();
+  // $(".add_user").toggle();
+  // $(".tool-tip").css("transform", "rotate(45deg)");
+})
+
+  $(function() {
+  function randomString() {
+    var chars = "0123456789abcdefghiklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXTZ";
+    var str = "";
+    for (var i = 0; i < 10; i++) {
+      str += chars[Math.floor(Math.random() * chars.length)];
+    }
+    return str;
+  }
+
+
+
+
+  function Column(name, class2) {
+    var self = this;
+
+    this.id = randomString();
+    this.name = name;
+    this.class2 = class2;
+    this.$element = createColumn();
+
+    function createColumn() {
+
+
+      // CREATING COMPONENTS OF COLUMNS
+      var $column = $("<div>").addClass("column");
+      var $columnTitle = $("<h2>")
+        .addClass("column-title")
+        .text(self.name);
+        var $span_title = $("<span>")
+        .addClass("span-title")
+        .text("Tasks");
+      var $columnCardList = $("<ul>").addClass("column-card-list " + class2);
+      // var $columnDelete = $("<button>")
+      //   .addClass("btn-delete")
+      //   .text("x");
+      var $columnAddCard = $("<button>")
+        .addClass("add-card")
+        .text("Add a task");
+      // ADDING EVENTS
+      // $columnDelete.click(function() {
+      //   self.removeColumn();
+      // });
+
+
+      //Add a note after clicking on the button:
+      $columnAddCard.click(function() {
+        
+// alert('do something, ask for imput and when submimtted, call function for registering these variables.');
+
+        self.addCard(new newCard(prompt("Enter the name of the card"), class2 ));
+      });
+
+// console.log(self.name);
+      // CONSTRUCTION COLUMN ELEMENT
+      $column
+        .append($columnTitle)
+                .append($span_title)
+        // .append($columnDelete)
+        .append($columnAddCard)
+        .append($columnCardList);
+
+
+
+      // RETURN OF CREATED COLUMN
+      return $column;
+
+    }
+
+  }
+
+
+
+
+
+
+
+
+
+
+  function Column2(name, class2) {
+    var self = this;
+
+    this.id = randomString();
+    this.name = name;
+    this.class2 = class2;
+    this.$element = createColumn2();
+
+    function createColumn2() {
+
+
+      // CREATING COMPONENTS OF COLUMNS
+      var $column = $("<div>").addClass("column");
+      var $columnTitle = $("<h2>")
+        .addClass("column-title")
+        .text(self.name);
+      var $columnCardList = $("<ul>").addClass("column-card-list " + class2);
+      // var $columnDelete = $("<button>")
+      //   .addClass("btn-delete")
+      //   .text("");
+      var $columnAddCard = $("<button>")
+        .addClass("add-card")
+        .text("Add a task");
+      // ADDING EVENTS
+      // $columnDelete.click(function() {
+      //   self.removeColumn();
+      // });
+
+
+      //Add a note after clicking on the button:
+      $columnAddCard.click(function() {
+        self.addCard(new newCard(prompt("Enter the name of the card"), class2 ));
+      });
+
+// console.log(self.name);
+      // CONSTRUCTION COLUMN ELEMENT
+      $column
+        .append($columnTitle)
+        .append($columnDelete)
+        .append($columnAddCard)
+        .append($columnCardList);
+
+//CREATE COL 2 
+
+var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+
+
+       // Typical action to be performed when the document is ready:
+       // document.getElementById("demo").innerHTML = xhttp.responseText;
+       
+      // var obj = JSON.parse(xhttp.responseText);
+
+
+
+    }
+};
+xhttp.open("GET", "add_col.php?name=" + self.name, true);
+xhttp.send();
+
+      // RETURN OF CREATED COLUMN
+      return $column;
+
+    }
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  Column.prototype = {
+    addCard: function(card) {
+      this.$element.children("ul").append(card.$element);
+
+    },
+    removeColumn: function() {
+      this.$element.remove();
+    }
+  };
+
+
+
+  function Card(description, class3) {
+    var self = this;
+
+    this.id = randomString();
+    this.description = description;
+    this.$element = createCard();
+
+
+
+    function createCard() {
+      // CREATING THE BLOCKS
+      var $card = $("<li>").addClass("card " + class3);
+      var $cardDescription = $("<p>")
+        .addClass("card-description")
+        .text(self.description);
+      var $cardDelete = $("<button>")
+        .addClass("btn-delete")
+        .text("");
+           // alert(self.description);
+      // BINDING TO CLICK EVENT
+      $cardDelete.click(function() {
+        self.removeCard();
+      });
+      // COMBINING BLOCKS AND RETURNING THE CARD
+      $card.append($cardDelete).append($cardDescription);
+     
+      return $card;
+    }
+
+  }
+
+
+
+
+
+
+  // new card
+
+
+  function newCard(description, class3) {
+    var self = this;
+
+    this.id = randomString();
+    this.description = description;
+    this.$element = createCard();
+
+
+
+    function createCard() {
+      // CREATING THE BLOCKS
+      var $card = $("<li>").addClass("card " + class3);
+      var $cardDescription = $("<p>")
+        .addClass("card-description")
+        .text(self.description);
+      var $cardDelete = $("<button>")
+        .addClass("btn-delete")
+        .text("");
+           // alert(self.description);
+      // BINDING TO CLICK EVENT
+      $cardDelete.click(function() {
+        self.removeCard();
+      });
+      // COMBINING BLOCKS AND RETURNING THE CARD
+      $card.append($cardDelete).append($cardDescription);
+     
+
+          // console.log(this.$element);
+     
+
+var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+
+
+       // Typical action to be performed when the document is ready:
+       // document.getElementById("demo").innerHTML = xhttp.responseText;
+       
+      // var obj = JSON.parse(xhttp.responseText);
+
+
+
+    }
+};
+xhttp.open("GET", "add_task.php?task=" + self.description + "&col=" + class3, true);
+xhttp.send();
+
+      return $card;
+    }
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  Card.prototype = {
+    removeCard: function() {
+      this.$element.remove();
+      
+
+var xhttp5 = new XMLHttpRequest();
+xhttp5.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+var obj = xhttp5.responseText;
+      // document.getElementById("demo").innerHTML = obj;
+}
+};
+xhttp5.open("GET", "delete_card.php?item=" + this.$element.attr('class'), true);
+xhttp5.send();
+
+
+
+    }
+  };
+
+
+
+  var board = {
+    name: "Kanban hhe",
+    addColumn: function(column) {
+      this.$element.append(column.$element);
+      initSortable(); // a function that makes things sortable
+          // console.log(column.name);
+          //column has been added
+    },
+    $element: $("#board .column-container")
+  };
+
+
+
+//the drag drop effect
+
+  // function initSortable() {
+  //   $(".column-card-list").sortable({
+  //       connectWith: ".column-card-list",
+  //       placeholder: "card-placeholder"
+  //     }).disableSelection();
+
+
+  // }
+
+  function initSortable() {
+    // $(".column-card-list").sortable({
+    //     connectWith: ".column-card-list",
+    //     placeholder: "card-placeholder"
+    //   }).disableSelection();
+
+
+$(".column-card-list").sortable({
+
+  connectWith: ".column-card-list",
+    update: function (evt, ui) {
+        // just ignore the second callback
+        if(ui.sender == null){
+            // call ajax here
+        }
+    },
+    receive: function (evt, ui) {
+        // called after the first 'update'
+        // and before the second 'update'
+        // ui.sender is always exists here
+        var the_task_item = $(ui.item).attr('class');
+        var the_new_place = this.className;
+
+
+
+
+    }
+
+}).disableSelection();
+  }
+
+
+
+
+
+  $(".create-column").click(function() {
+    var name = prompt("Enter a column name");
+    var column = new Column2(name);
+    board.addColumn(column);
+
+console.log(column);
+  });
+
+
+
+
+
+
+       
+      
+
+  var todoColumn = new Column("To Do", "1");
+  var doingColumn = new Column("Doing", "2");
+  var doneColumn = new Column("Done", "3");
+   
+
+  board.addColumn(todoColumn);
+  board.addColumn(doingColumn);
+  board.addColumn(doneColumn); 
+  
+
+
+
+
+
+
+
+
+  // CREATING COLUMNS as per the name has been given
+
+
+
+  // ADDING COLUMNS TO THE BOARD - choose what to show and what not to show
+
+
+
+  // CREATING CARDS - load pre existing cardssss
+
+
+
+
+
+
+
+
+
+
+});
+
+
+//add a col to server
+//list of col names
+//add col items to server
+//list of items and display them on column names
+//load existing columns and create new columns
+
+//todo 
+//track of changed cols
+//identify deleted cols
+
+//insert unique id to each card, and keep id as a class and when deleted, get the id / class and send delete request to the server
+
+
+
+
+
+
+
+</script>
